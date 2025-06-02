@@ -1,0 +1,20 @@
+
+FROM node:18-alpine
+
+
+WORKDIR /app
+
+
+COPY package*.json ./
+
+
+RUN npm install
+
+
+COPY . .
+
+RUN npx prisma generate --schema=./src/infra/prisma/schema.prisma
+
+EXPOSE 3000
+
+CMD ["npx", "ts-node", "src/main/server.ts"]
