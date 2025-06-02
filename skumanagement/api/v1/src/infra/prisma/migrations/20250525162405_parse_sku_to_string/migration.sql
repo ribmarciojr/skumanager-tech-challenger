@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "SkuEntity" ALTER COLUMN "sku" SET DATA TYPE TEXT;

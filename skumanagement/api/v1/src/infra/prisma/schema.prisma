@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+enum SkuStatusEnum {
+  PRE_REGISTER
+  COMPLETE_REGISTER
+  ACTIVE
+  DISABLED
+  CANCELED
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model SkuEntity {
+  id                 Int           @id @default(autoincrement())
+  descricao          String?
+  descricaoComercial String
+  sku                String           @unique
+
+  statusId           Int?          @unique
+  status             SkuStatusType? @relation(fields: [statusId], references: [id])
+}
+
+model SkuStatusType {
+  id     Int        @id @default(autoincrement())
+  status SkuStatusEnum
+  sku    SkuEntity?
+}
+
