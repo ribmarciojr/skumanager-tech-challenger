@@ -48,6 +48,8 @@ npm start
 # Executando o frontend
 
 npm run dev
+
+localhost:3001/sku/list
 ```
 
 ## Banco de dados (UML)
