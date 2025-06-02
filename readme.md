@@ -17,11 +17,16 @@
 
 ## 🚀 Tecnologias
 
+Database: 
 - [PostgreSQL](https://www.postgresql.org/)
+
+SkuView service:
 - [Next.js 15](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Express](https://expressjs.com/)
 
+SkuManager api service:
+- [Express](https://expressjs.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 ---
 
 ## 📦 Instalação
