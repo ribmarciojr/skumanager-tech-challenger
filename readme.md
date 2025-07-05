@@ -1,12 +1,15 @@
-# 📦 Skumanager
+# 📦 Skumanager | Controle de SKU'S
 
-> Projeto composto por três serviços: banco de dados, frontend e backend, focado na gestão de SKUs.
+> Permite a gestão de SKU's unitários.
 
 ---
 
+Esse projeto representa uma mini-plataforma para gestão de SKU's unitários, como parte de um
+desafio técnico.
+
 ## 📚 Sumário
 
-- [🚀 Tecnologias](#-tecnologias)
+- [🚀 Requisitos](#-requisitos)
 - [📦 Instalação](#-instalação)
 - [🏗️ Estrutura do Projeto](#️-estrutura-do-projeto)
 - [🧪 Testes](#-testes)
@@ -15,44 +18,35 @@
 
 ---
 
-## 🚀 Tecnologias
+## 🚀 Requisitos
 
-Database: 
-- [PostgreSQL](https://www.postgresql.org/)
-
-SkuView service:
-- [Next.js 15](https://nextjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-
-SkuManager api service:
-- [Express](https://expressjs.com/)
-- [TypeScript](https://www.typescriptlang.org/)
----
+Interpretador node.js versão maior ou igual a 20.0.
 
 ## 📦 Instalação
 
 ```bash
-# Clone o repositório
+# Clone o repositório com os arquivos e pastas
 git clone https://github.com/seu-usuario/skumanager.git
 
-# Acesse a pasta
-cd sku-project
+# Acesse a pasta clonada
+cd skumanager-tech-challenger
 
-# Instale as dependências do frontend
-cd skuview
-npm install
+# [BANCO DE DADOS]
+# Para criar uma instância do banco pré-configurada:
+docker compose -f ./docker-compose-dev.yml up
+
+# Caso deseje utilizar outro serviço consulte as variáveis de ambiente da instância em:
+./docker-compose-dev.yml
 
 # Instale as dependências do backend
 cd ../skumanagement
 npm install
 
-# Executando o backend
+# Instale as dependências do frontend
+cd skuview
+npm install
+# npm run dev
 
-npm start
-
-# Executando o frontend
-
-npm run dev
 
 localhost:3001/sku/list
 ```
