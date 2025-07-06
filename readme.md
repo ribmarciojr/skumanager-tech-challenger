@@ -39,6 +39,7 @@ O **Skumanager** é uma mini-plataforma, desenvolvida como parte de um desafio t
 ## 🚀 Requisitos
 
 Interpretador node.js versão maior ou igual a 20.0.
+<br />
 Docker Deamon(Engine) versão 27.4.
 
 ## 📦 Instalação
