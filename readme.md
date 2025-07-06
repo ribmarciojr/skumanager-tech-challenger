@@ -27,22 +27,27 @@ O **Skumanager** é uma mini-plataforma, desenvolvida como parte de um desafio t
 
 ## 📚 Sumário
 
+<br />
+
 - [🚀 Requisitos](#requisitos)
-- [📦 Instalação](#instalação)
-- [🏗️ Estrutura do Projeto](#estrutura-do-projeto)
-- [🧪 Testes](#-testes)
-- [📁 Convenções e Padrões](#-convenções-e-padrões)
-- [📝 Licença](#-licença)
+- [📦 Instalação](#instalacao)
+  - [🛠 Banco de Dados](#banco-de-dados)
+  - [🔧 Back End](#api)
+  - [💻 Front End](#front-end)
+- [☁️ Cloud Services](#cloud-services)
+- [🗃️ Banco de Dados (UML)](#banco-de-dados-uml)
+- [🧱 Arquitetura Back-end](#back-end)
+- [🧩 Arquitetura Front-end](#front-end-1)
 
----
+<br />
 
-## 🚀 Requisitos
+<h2 id="requisitos">🚀 Requisitos</h2>
 
 Interpretador node.js versão maior ou igual a 20.0.
 <br />
 Docker Deamon(Engine) versão 27.4.
 
-## 📦 Instalação
+<h2 id="instalacao">📦 Instalação</h2>
 
 ```bash
 # 1. Clone o repositório com os arquivos e pastas
@@ -64,7 +69,7 @@ docker compose -f ./docker-compose-dev.yml up
 
 ---
 
-### 🔧 Back End
+### 🔧 API
 
 ```bash
 # 4. Navegue até a raiz da API
@@ -110,7 +115,7 @@ npm run dev
 > 🌐 Acesse no navegador:\
 > http\://localhost:3001/sku/list
 
-<h2>Cloud Services</h2>
+## Cloud Services
 
 <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 40px;">
   <img alt="diagrama de infraestrutura aws" src="./image-2.png" style="width: 400px; border-radius: 8px;" />
@@ -120,7 +125,7 @@ npm run dev
   </p>
 </div>
 
-<h2>Banco de Dados (UML)</h2>
+## Banco de Dados (UML)
 
 <div style="display: flex; align-items: center; gap: 20px;">
     <p style="text-align: justify; margin: 0;">
