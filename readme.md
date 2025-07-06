@@ -21,6 +21,7 @@ desafio técnico.
 ## 🚀 Requisitos
 
 Interpretador node.js versão maior ou igual a 20.0.
+Docker Deamon(Engine) versão 27.4.
 
 ## 📦 Instalação
 
