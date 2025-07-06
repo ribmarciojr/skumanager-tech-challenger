@@ -33,11 +33,11 @@ O **Skumanager** é uma mini-plataforma, desenvolvida como parte de um desafio t
 - [📦 Instalação](#instalacao)
   - [🛠 Banco de Dados](#banco-de-dados)
   - [🔧 Back End](#api)
-  - [💻 Front End](#front-end)
+  - [💻 Front End](#front-end-install)
 - [☁️ Cloud Services](#cloud-services)
 - [🗃️ Banco de Dados (UML)](#banco-de-dados-uml)
 - [🧱 Arquitetura Back-end](#back-end)
-- [🧩 Arquitetura Front-end](#front-end-1)
+- [🧩 Arquitetura Front-end](#front-end)
 
 <br />
 
@@ -57,7 +57,7 @@ git clone https://github.com/ribmarciojr/skumanager-tech-challenger.git
 cd skumanager-tech-challenger
 ```
 
-### 🛠 Banco de Dados
+<h3 id="banco-de-dados">🛠 Banco de Dados</h3>
 
 ```bash
 # 3. Suba a instância pré-configurada do banco
@@ -69,7 +69,7 @@ docker compose -f ./docker-compose-dev.yml up
 
 ---
 
-### 🔧 API
+<h3 id="api">🔧 API</h3>
 
 ```bash
 # 4. Navegue até a raiz da API
@@ -93,7 +93,7 @@ npm start
 
 ---
 
-### 💻 Front End
+<h3 id="front-end-install">💻 Front End</h3>
 
 ```bash
 # 9. Volte para a raiz do projeto
@@ -135,7 +135,7 @@ npm run dev
     <img alt="imagem em diagrama uml das tabelas do banco" src="./image.png" style="width: 400px; border-radius: 8px;" />
 </div>
 
-## Back-end
+## Arquitetura Back-end
 
 <br />
 
@@ -149,7 +149,7 @@ npm run dev
 
 <br />
 
-## Front-end
+## Arquitetura Front-end
 
 <br />
 
