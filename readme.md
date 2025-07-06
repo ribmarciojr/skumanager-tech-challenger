@@ -16,10 +16,10 @@
     </table>
 </div>
 
-
 Se você já se perguntou como as lojas controlam seus produtos, sabendo exatamente quantos itens de uma cor ou tamanho específico possuem em estoque, a resposta geralmente envolve um SKU.
 
-> SKU, ***Stock Keeping Unit*** i.e Unidade de Manutenção de Estoque, é um código único — como um RG — para cada variação de um produto. Por exemplo, os itens abaixo teriam SKUs diferentes:
+> SKU, **_Stock Keeping Unit_** i.e Unidade de Manutenção de Estoque, é um código único — como um RG — para cada variação de um produto. Por exemplo, os itens abaixo teriam SKUs diferentes:
+>
 > - Camiseta azul - Tamanho M
 > - Camiseta azul - Tamanho G
 
@@ -27,9 +27,9 @@ O **Skumanager** é uma mini-plataforma, desenvolvida como parte de um desafio t
 
 ## 📚 Sumário
 
-- [🚀 Requisitos](#-requisitos)
-- [📦 Instalação](#-instalação)
-- [🏗️ Estrutura do Projeto](#️-estrutura-do-projeto)
+- [🚀 Requisitos](#requisitos)
+- [📦 Instalação](#instalação)
+- [🏗️ Estrutura do Projeto](#estrutura-do-projeto)
 - [🧪 Testes](#-testes)
 - [📁 Convenções e Padrões](#-convenções-e-padrões)
 - [📝 Licença](#-licença)
@@ -110,42 +110,35 @@ npm run dev
 > 🌐 Acesse no navegador:\
 > http\://localhost:3001/sku/list
 
-## Cloud Services
+<h2>Cloud Services</h2>
 
-<br />
-
-<div style="display: flex; align-items: center; gap: 20px;">
-    <img alt="diagrama de infraestrutura aws" src="./image-2.png ">
-    <p style="text-align: right;">
-        O diagrama ao lado representa a infraestrutura mínima para o projeto no contexto de cloud AWS, constando de uma máquina EC2, para hospedagem de UI e API, e uma instância RDS PostgreSQL, para hospedagem do serviço de banco de dados. 
-    </p>
+<div style="display: flex; align-items: center; gap: 20px; margin-bottom: 40px;">
+  <img alt="diagrama de infraestrutura aws" src="./image-2.png" style="width: 400px; border-radius: 8px;" />
+  <p style="text-align: justify; margin: 0;">
+    O diagrama ao lado representa a infraestrutura mínima para o projeto no contexto de cloud AWS, constando de uma
+    máquina EC2, para hospedagem de UI e API, e uma instância RDS PostgreSQL, para hospedagem do serviço de banco de dados.
+  </p>
 </div>
 
-<br />
+<h2>Banco de Dados (UML)</h2>
 
-## Banco de dados (UML)
-
-<br />
-
-<div style="height: 200px; display: flex; align-items: center; gap: 20px;">
-    <p>
+<div style="display: flex; align-items: center; gap: 20px;">
+    <p style="text-align: justify; margin: 0;">
         Ao lado uma imagem das entidades mapeadas no banco de dados conforme a necessidade de 
         atributos para a compreensão de um SKU.
     </p>
-    <img alt="imagem em diagrama uml das tabelas do banco" src="./image.png">
+    <img alt="imagem em diagrama uml das tabelas do banco" src="./image.png" style="width: 400px; border-radius: 8px;" />
 </div>
-
-<br />
 
 ## Back-end
 
 <br />
 
 <div style="display: flex; align-items: center; gap: 20px;">
-    <img src="./image-1.png" alt="imagem de cone em diagrama clean arch representando as camadas do back-end" />
-    <p>
+    <img src="./image-1.png" alt="imagem de cone em diagrama clean arch representando as camadas do back-end" style="width: 400px; border-radius: 8px;" />
+    <p style="text-align: justify; margin: 0;">
         O backend foi construído como uma API REST em Express + TypeScript, utilizando as práticas de <i>Domain Driven Design</i>(Erick Evans) e
-        <i>Clean Architecture</i>(Robert Martin). 
+        <i>Clean Architecture</i>(Robert Martin).
     </p>
 </div>
 
@@ -153,9 +146,17 @@ npm run dev
 
 ## Front-end
 
+<br />
+
+<p style="text-align: justify; margin: 0;">
+O frontend foi idealizado para que pontos importantes e reutilizáveis de cada página fossem criados como componentes e cada componente agrupasse seus hooks, services e tipagem necessária para lidar com os estados da aplicação de forma desacoplada.
+</p>
+
+<br />
+
 ```bash
     # Frontend Next.js 15 + TypeScript
-    ├── skuview/              
+    ├── skuview/
     │   ├── app/ # Conjunto de páginas públicas e privadas da aplicação
     │   ├── components/ # Conjunto de componentes visuais para as páginas
     │   ├── hooks/ # Hooks Tan-Stack para fazer uma requisição e lidar com estados
