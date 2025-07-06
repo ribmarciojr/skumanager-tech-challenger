@@ -5,15 +5,15 @@
 ---
 
 <div align="center">
-<table>
-<tbody>
-<td align="center">
-<img width="2000" height="0"><br>
-<strong>Bem-vindo ao Skumanager!</strong><br>
-<img width="2000" height="0">
-</td>
-</tbody>
-</table>
+    <table>
+        <tbody>
+            <td align="center">
+                <img width="2000" height="0"><br>
+                <strong>Bem-vindo ao Skumanager!</strong><br>
+                <img width="2000" height="0">
+            </td>
+        </tbody>
+    </table>
 </div>
 
 
@@ -111,50 +111,57 @@ npm run dev
 > http\://localhost:3001/sku/list
 
 ## Cloud Services
-<div width=100 height=100>
-<img align="left" hspace=20 alt="diagrama de infraestrutura aws" src="./image-2.png ">
 
-<p>
-O diagrama ao lado representa a infraestrutura mínima para o projeto no contexto de cloud AWS, constando de uma máquina EC2, para hospedagem de UI e API, e uma instância RDS PostgreSQL, para hospedagem do serviço de banco de dados. 
-</p>
+<br />
+
+<div style="display: flex; align-items: center; gap: 20px;">
+    <img alt="diagrama de infraestrutura aws" src="./image-2.png ">
+    <p style="text-align: right;">
+        O diagrama ao lado representa a infraestrutura mínima para o projeto no contexto de cloud AWS, constando de uma máquina EC2, para hospedagem de UI e API, e uma instância RDS PostgreSQL, para hospedagem do serviço de banco de dados. 
+    </p>
 </div>
 
 <br />
-<br />
-
- 
-
-<br />
-<br />
 
 ## Banco de dados (UML)
-<div>
-<img align="right" alt="imagem em diagrama uml das tabelas do banco" src="./image.png">
 
-<p>
-Ao lado uma imagem das entidades mapeadas no banco de dados conforme a necessidade de 
-atributos para a compreensão de um SKU.
-</p>
-<div>
+<br />
+
+<div style="height: 200px; display: flex; align-items: center; gap: 20px;">
+    <p>
+        Ao lado uma imagem das entidades mapeadas no banco de dados conforme a necessidade de 
+        atributos para a compreensão de um SKU.
+    </p>
+    <img alt="imagem em diagrama uml das tabelas do banco" src="./image.png">
+</div>
+
+<br />
 
 ## Back-end
 
-![imagem de cone em diagrama clean arch representando as camadas do back-end](image-1.png)
+<br />
 
-├── skumanagement/        # Backend Express + TypeScript, Clean Architecture
-│   ├── domain/           # Entidades de dominio;
-│   ├── application/      # Casos de uso e regras de negócio;
-│   ├── infra/            # Banco de dados, logs e libs externas;
-│   └── http/             # Controladores, camada de requisição e respostas ao protocolo http;
-    └── main/             # Configuração de framework e inicialização do socket.
+<div style="display: flex; align-items: center; gap: 20px;">
+    <img src="./image-1.png" alt="imagem de cone em diagrama clean arch representando as camadas do back-end" />
+    <p>
+        O backend foi construído como uma API REST em Express + TypeScript, utilizando as práticas de <i>Domain Driven Design</i>(Erick Evans) e
+        <i>Clean Architecture</i>(Robert Martin). 
+    </p>
+</div>
+
+<br />
 
 ## Front-end
 
-├── skuview/              # Frontend Next.js 15 + TypeScript
-│   ├── app/
-│   ├── pages/
-│   ├── components/
-│   ├── hooks/
-│   ├── interfaces/
-│   ├── errors/
-│   └── enums/
+```bash
+    # Frontend Next.js 15 + TypeScript
+    ├── skuview/              
+    │   ├── app/ # Conjunto de páginas públicas e privadas da aplicação
+    │   ├── components/ # Conjunto de componentes visuais para as páginas
+    │   ├── hooks/ # Hooks Tan-Stack para fazer uma requisição e lidar com estados
+    │   ├── interfaces/ # Contratos de tipagem
+    │   ├── errors/ # Custom erros
+    │   ├── enums/ # Conjunto de enums para tipagem
+    │   ├── services/ # Serviços de fetch utilizados pelos hooks
+    │   └── utils/ # Algoritmos uteis para a aplicação
+```
