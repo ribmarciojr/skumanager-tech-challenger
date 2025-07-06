@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "migrate:db": "npx prisma generate --schema=./src/infra/prisma/schema.prisma",
+    "generate:db": "npx prisma generate --schema=./src/infra/prisma/schema.prisma",
+    "migrate:db": "npx prisma migrate dev --schema=./src/infra/prisma/schema.prisma",
     "start": "ts-node --transpile-only src/main/server.ts",
     "test": "jest",
     "test:coverage": "jest --coverage"
