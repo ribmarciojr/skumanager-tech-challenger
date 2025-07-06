@@ -38,17 +38,42 @@ docker compose -f ./docker-compose-dev.yml up
 # Caso deseje utilizar outro serviço consulte as variáveis de ambiente da instância em:
 ./docker-compose-dev.yml
 
+# [BACK END]
+# Caminhe para a raiz da API:
+cd ./skumanagement/api/v1
+
 # Instale as dependências do backend
-cd ../skumanagement
 npm install
+
+# Gere os códigos de abstraçãdo do ORM prisma
+npm run generate:db
+
+# Rode a migração no banco de dados
+npm run migrate:db
+
+# Execute o servidor:
+npm start
+
+# Verifique o sucesso através da mensagem de terminal:
+[INFO] Server is running on http://localhost:3000
+
+# Vá para a raiz do projeto
+
+# [FRONT NED]
+# Caminhe até o diretório da interface da API:
+cd skuview
 
 # Instale as dependências do frontend
-cd skuview
 npm install
-# npm run dev
 
+# Execute o programa
+npm run dev
 
-localhost:3001/sku/list
+# Confira o sucesso no terminal através da mensagem:
+✓ Ready in 
+
+# Acesse no navegador
+Entrypage: http://localhost:3001/sku/list
 ```
 
 ## Banco de dados (UML)
