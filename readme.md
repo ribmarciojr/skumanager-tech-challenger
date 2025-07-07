@@ -115,32 +115,56 @@ npm run dev
 > 🌐 Acesse no navegador:\
 > http\://localhost:3001/sku/list
 
+---
+
 ## Cloud Services
 
 <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 40px;">
-  <img alt="diagrama de infraestrutura aws" src="./image-2.png" style="width: 400px; border-radius: 8px;" />
+ <img align="right" alt="diagrama de infraestrutura aws" src="./image-2.png"  width=400; height=200 />
   <p style="text-align: justify; margin: 0;">
     O diagrama ao lado representa a infraestrutura mínima para o projeto no contexto de cloud AWS, constando de uma
     máquina EC2, para hospedagem de UI e API, e uma instância RDS PostgreSQL, para hospedagem do serviço de banco de dados.
   </p>
 </div>
 
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+---
+
 ## Banco de Dados (UML)
 
 <div style="display: flex; align-items: center; gap: 20px;">
+    <img align="left" alt="imagem em diagrama uml das tabelas do banco" src="./image.png" style="width: 400px; border-radius: 8px;" />
     <p style="text-align: justify; margin: 0;">
         Ao lado uma imagem das entidades mapeadas no banco de dados conforme a necessidade de 
         atributos para a compreensão de um SKU.
     </p>
-    <img alt="imagem em diagrama uml das tabelas do banco" src="./image.png" style="width: 400px; border-radius: 8px;" />
 </div>
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+---
 
 ## Arquitetura Back-end
 
 <br />
 
 <div style="display: flex; align-items: center; gap: 20px;">
-    <img src="./image-1.png" alt="imagem de cone em diagrama clean arch representando as camadas do back-end" style="width: 400px; border-radius: 8px;" />
+    <img align=right src="./image-1.png" alt="imagem de cone em diagrama clean arch representando as camadas do back-end" style="width: 400px; border-radius: 8px;" />
     <p style="text-align: justify; margin: 0;">
         O backend foi construído como uma API REST em Express + TypeScript, utilizando as práticas de <i>Domain Driven Design</i>(Erick Evans) e
         <i>Clean Architecture</i>(Robert Martin).
@@ -148,6 +172,22 @@ npm run dev
 </div>
 
 <br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+---
 
 ## Arquitetura Front-end
 
