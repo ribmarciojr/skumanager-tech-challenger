@@ -1,0 +1,42 @@
+# Dependências locais — serão instaladas dentro do container
+node_modules
+.pnp
+.pnp.js
+
+# Builds locais
+.next
+out
+dist
+
+# Logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+*.log
+
+# Arquivos temporários
+*.swp
+*.swo
+*.tmp
+*.temp
+
+# Sistemas operacionais
+.DS_Store
+Thumbs.db
+
+# Git e versionamento
+.git
+.gitignore
+
+# Configurações de editor/IDE
+.vscode
+.idea
+
+# Arquivos de build do Docker (opcional)
+Dockerfile
+docker-compose.yml
+docker-compose.override.yml
+
+# Variáveis de ambiente
+.env
