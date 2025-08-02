@@ -22,7 +22,7 @@ services:
     depends_on:
       - db
     restart: unless-stopped
-    command: sh -c "npm run migrate:db && npm run start"
+    command: sh -c "npm run migrate:db && npm run start:production"
   view:
     build:
       context: ./skuview
