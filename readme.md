@@ -30,7 +30,8 @@ O **Skumanager** é uma mini-plataforma, desenvolvida como parte de um desafio t
 <br />
 
 - [🚀 Requisitos](#requisitos)
-- [📦 Instalação](#instalacao)
+- [📦 Instalação com Docker](#instalacao-docker)
+- [📦 Instalação Crua](#instalacao)
   - [🛠 Banco de Dados](#banco-de-dados)
   - [🔧 Back End](#api)
   - [💻 Front End](#front-end-install)
@@ -47,7 +48,17 @@ Interpretador node.js versão maior ou igual a 20.0.
 <br />
 Docker Deamon(Engine) versão 27.4.
 
-<h2 id="instalacao">📦 Instalação</h2>
+<h2 id="instalacao-docker">📦 Instalação Simples com Docker</h2>
+
+```bash
+# 1. Acesse a pasta clonada
+cd skumanager-tech-challenger
+
+# 2. Utilize o comando docker como administrador na raiz do projeto
+docker compose -f ./docker-compose.yml up
+```
+
+<h2 id="instalacao">📦 Instalação Crua</h2>
 
 ```bash
 # 1. Clone o repositório com os arquivos e pastas
