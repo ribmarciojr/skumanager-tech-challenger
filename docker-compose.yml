@@ -1,4 +1,15 @@
 services:
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: skus
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
   api:
     build:
       context: ./skumanagement/api/v1
@@ -11,7 +22,7 @@ services:
     depends_on:
       - db
     restart: unless-stopped
-
+    command: sh -c "npm run migrate:db && npm run start"
   view:
     build:
       context: ./skuview
@@ -21,18 +32,6 @@ services:
       - "3001:3001"
     depends_on:
       - api
-
-  db:
-    image: postgres:latest
-    container_name: postgres_db
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: skus
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
 
 volumes:
   postgres_data:
