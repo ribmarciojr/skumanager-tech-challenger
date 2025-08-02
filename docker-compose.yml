@@ -1,0 +1,38 @@
+services:
+  api:
+    build:
+      context: ./skumanagement/api/v1
+      dockerfile: Dockerfile
+    container_name: sku_api
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:root@db:5432/skus
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  view:
+    build:
+      context: ./skuview
+      dockerfile: Dockerfile
+    container_name: sku_view
+    ports:
+      - "3001:3001"
+    depends_on:
+      - api
+
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: skus
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
