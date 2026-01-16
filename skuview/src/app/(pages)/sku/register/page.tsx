@@ -58,6 +58,7 @@ export default function SkuRegisterPage() {
                     error={errors.sku}
                     helperText={errors.sku && 'SKU é obrigatório'}
                     placeholder="111110"
+                    name="sku"
                 />
                 <TextField
                     label="Descrição Comercial*"
@@ -92,7 +93,7 @@ export default function SkuRegisterPage() {
                     error={errors.status}
                     helperText={errors.status && 'Status é obrigatório'}
                     disabled={!isEditing}
-                    
+
                 >
                     <MenuItem value="" disabled>
                         <em>Selecione um status</em>

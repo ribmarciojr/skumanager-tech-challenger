@@ -3,7 +3,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 export default function Header() {
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#93DA49", boxShadow: "none", padding: "10px 20px" }}>
+    <AppBar position="static" data-testid="header" sx={{ backgroundColor: "#93DA49", boxShadow: "none", padding: "10px 20px" }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
 
         <Typography variant="h6" sx={{ fontWeight: "bold", color: "white" }}>
