@@ -1,41 +1,42 @@
 {
-    "name": "skuview",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev -p 3001 -H 0.0.0.0",
-        "build": "next build",
-        "start": "next start -p 4000",
-        "lint": "next lint",
-        "test": "vitest",
-        "test:watch": "vitest"
-    },
-    "dependencies": {
-        "@emotion/react": "^11.14.0",
-        "@emotion/styled": "^11.14.0",
-        "@mui/icons-material": "^6.4.3",
-        "@mui/material": "^6.4.11",
-        "@mui/material-nextjs": "^6.4.3",
-        "@tanstack/react-query": "^5.77.2",
-        "@testing-library/jest-dom": "^6.9.1",
-        "axios": "^1.9.0",
-        "next": "15.1.8",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0",
-        "react-toastify": "^11.0.5"
-    },
-    "devDependencies": {
-        "@testing-library/dom": "^10.4.1",
-        "@testing-library/react": "^16.3.0",
-        "@types/node": "^20",
-        "@types/react": "^19.1.5",
-        "@types/react-dom": "^19",
-        "@vitejs/plugin-react": "^5.0.4",
-        "jsdom": "^27.0.0",
-        "postcss": "^8",
-        "tailwindcss": "^3.4.1",
-        "typescript": "^5",
-        "vite-tsconfig-paths": "^5.1.4",
-        "vitest": "^3.2.4"
-    }
+  "name": "skuview",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001 -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start -p 4000",
+    "lint": "next lint",
+    "test": "vitest",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.3",
+    "@mui/material": "^6.4.11",
+    "@mui/material-nextjs": "^6.4.3",
+    "@tanstack/react-query": "^5.77.2",
+    "@testing-library/jest-dom": "^6.9.1",
+    "axios": "^1.9.0",
+    "next": "15.1.8",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-toastify": "^11.0.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^20",
+    "@types/react": "^19.1.5",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^5.0.4",
+    "jsdom": "^27.0.0",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4"
+  }
 }
