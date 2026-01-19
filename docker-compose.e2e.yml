@@ -1,0 +1,81 @@
+version: "3.9"
+
+services:
+  test-db:
+    image: postgres:latest
+    container_name: test-db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: skus
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 2s
+      retries: 10
+  test-api:
+    build:
+      context: ./skumanagement/api/v1
+      dockerfile: Dockerfile
+    container_name: sku_api
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:root@test-db:5432/skus
+    depends_on:
+      - test-db
+    restart: unless-stopped
+    command: sh -c "npm run migrate:db && npm run start:production"
+  test-view:
+    build:
+      context: ./skuview
+      dockerfile: Dockerfile
+    container_name: sku_view
+    ports:
+      - "3001:3001"
+    depends_on:
+      - test-api
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:3001/api/health",
+        ]
+      interval: 2s
+      retries: 10
+      start_period: 3s
+      timeout: 5s
+  emulator:
+    image: mcr.microsoft.com/playwright:v1.57.0-jammy
+    depends_on:
+      test-view:
+        condition: service_healthy
+    container_name: emulator
+    working_dir: /app/skuview
+    volumes:
+      - ./skuview:/app/skuview
+      - /app/skuview/node_modules
+    environment:
+      BASE_URL: http://test-view:3001
+      API_URL: http://test-api:3000
+      NODE_ENV: test
+      CI: true
+    command: >
+      sh -c "
+        echo '🔍 Instalando dependências...' &&
+        npm ci &&
+        echo '🔍 Verificando conectividade...' &&
+        wget --timeout=10 --tries=3 http://test-view:3001/api/health -O /dev/null &&
+        echo '✅ Conectividade OK!' &&
+        echo '🧪 Executando testes E2E...' &&
+        npx playwright test --config=playwright.config.ts
+      "
+
+networks:
+  default:
+    driver: bridge
