@@ -1,9 +1,9 @@
-version: '3.9'
+version: "3.9"
 
 services:
-  db:
+  dev-db:
     image: postgres:latest
-    container_name: postgres_db
+    container_name: dev-db
     ports:
       - "5432:5432"
     environment:
@@ -12,6 +12,58 @@ services:
       POSTGRES_DB: skus
     volumes:
       - postgres_data:/var/lib/postgresql/data
-
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d skus"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  dev-api:
+    build:
+      context: ./skumanagement/api/v1
+      dockerfile: Dockerfile.dev
+    container_name: dev-api
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:root@dev-db:5432/skus
+      - NODE_ENV=development
+    depends_on:
+      dev-db:
+        condition: service_healthy
+    restart: unless-stopped
+    command: sh -c "
+      echo 'Executando migrações...' &&
+      npm run migrate:db &&
+      echo 'Migrações concluídas. Iniciando compilação em watch mode...' &&
+      npm run start:dev
+      "
+    volumes:
+      - ./skumanagement/api/v1:/app
+      - /app/node_modules
+      - /app/dist
+  dev-view:
+    build:
+      context: ./skuview
+      dockerfile: Dockerfile.dev
+    container_name: dev-view
+    ports:
+      - "3001:3001"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:3000/api/v1
+      - API_BASE_URL=http://dev-api:3000/api/v1
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+    depends_on:
+      - dev-api
+    volumes:
+      - ./skuview:/app
+      - /app/node_modules
+      - /app/.next
+    command: sh -c "
+      echo 'Instalando dependências...' &&
+      npm install &&
+      echo 'Iniciando Next.js em modo desenvolvimento...' &&
+      npm run dev
+      "
 volumes:
   postgres_data:

@@ -1,20 +1,16 @@
-
-FROM node:18-alpine
-
+FROM node:20-alpine
 
 WORKDIR /app
 
-
 COPY package*.json ./
 
-
-RUN npm install
-
+RUN npm ci --include=dev
 
 COPY . .
+
+RUN find src -name "*.js" -delete && \
+    find src -name "*.js.map" -delete
 
 RUN npx prisma generate --schema=./src/infra/prisma/schema.prisma
 
 EXPOSE 3000
-
-CMD ["npx", "ts-node", "src/main/server.ts"]

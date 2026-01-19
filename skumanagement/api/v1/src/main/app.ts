@@ -1,5 +1,4 @@
-import { setupExpress } from './config/express';
-import skuRouter from './routes/sku.router';
+import { setupExpress } from "./config/express";
 
 const app = setupExpress();
 
