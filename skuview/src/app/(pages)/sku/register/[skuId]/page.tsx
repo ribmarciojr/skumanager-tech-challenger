@@ -4,7 +4,13 @@ import { Typography } from "@mui/material";
 import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 
-export default function SkuCreatePage() {
+export default async function SkuEditPage({
+  params,
+}: {
+  params: Promise<{ skuId: string }>;
+}) {
+  const skuId = (await params).skuId;
+  console.log(skuId);
   return (
     <div>
       <Typography variant="h4" component="h4" gutterBottom>
@@ -16,7 +22,7 @@ export default function SkuCreatePage() {
       </Typography>
 
       <Suspense fallback={<div>Carregando...</div>}>
-        <SkuRegisterForm searchParams={{ skuId: undefined }} />
+        <SkuRegisterForm searchParams={{ skuId }} />
       </Suspense>
 
       <BackButton previusRoute="/sku/list" />

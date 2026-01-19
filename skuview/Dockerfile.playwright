@@ -1,0 +1,17 @@
+# skuview/Dockerfile.playwright
+FROM mcr.microsoft.com/playwright:v1.57.0-jammy
+
+WORKDIR /app
+
+# Copiar package.json e instalar dependências
+COPY package*.json ./
+RUN npm ci
+
+# Copiar código fonte
+COPY . .
+
+# Instalar browsers do Playwright
+RUN npx playwright install
+
+# Comando padrão
+CMD ["npm", "run", "test:e2e"]
