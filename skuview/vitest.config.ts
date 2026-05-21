@@ -9,6 +9,12 @@ export default defineConfig({
     name: "skuview-test",
     setupFiles: ['./vitest-setup.js'],
     globals: true,
-    css: true
+    css: true,
+    exclude: ['node_modules', 'tests/**'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['lcov', 'text-summary'],
+      exclude: ['**/*.spec.*', '**/*.test.*', '.next/**', 'node_modules/**'],
+    },
   },
 })

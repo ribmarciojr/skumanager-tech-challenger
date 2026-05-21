@@ -8,4 +8,10 @@ module.exports = {
   transform: {
     ...tsJestTransformCfg,
   },
+  collectCoverageFrom: [
+    "src/**/*.ts",
+    "!src/tests/**",
+    "!src/infra/prisma/**",
+  ],
+  coverageReporters: ["lcov", "text-summary"],
 };
